@@ -21,9 +21,11 @@
 			document.body.appendChild( renderer.domElement );
 			
 			for(i=0; i<10; i++){
-				var geometry = new THREE.BoxGeometry( i, i, i);
+				var geometry = new THREE.BoxGeometry( 1, 1, 1);
 				var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 				var cube = new THREE.Mesh( geometry, material );
+				cube.x = 0 + i;
+				cube.y = 0 + i;
 				scene.add( cube );
 			}
 
