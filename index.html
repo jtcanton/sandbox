@@ -11,11 +11,11 @@
 	<body>
 	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script>
+		<script src="OBJLoader.js"></script>
 		<script>
-			// Our Javascript will go here.
 			
-			var plant;
 			console.log("hi");
+
 			
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / 						window.innerHeight, 0.1, 1000 );
@@ -29,6 +29,7 @@
 
 			var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
 			scene.add( ambientLight );
+			console.log('lights added');
 			
 			// instantiate a loader
 			var loader = new THREE.OBJLoader();
@@ -36,7 +37,7 @@
 			// load a resource
 			loader.load(
 				// resource URL
-				'fox.obj',
+				'./fox.obj',
 				// called when resource is loaded
 				function ( object ) {
 
