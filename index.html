@@ -13,6 +13,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script>
 		<script src="OrbitControls.js"></script>
 		<script src="OBJLoader.js"></script>
+		<script src="TextureLoader.js"></script>
 		<script>
 			
 			var scene = new THREE.Scene();
@@ -40,6 +41,11 @@
 			scene.add( ambientLight );
 			console.log('lights added');
 			
+			var texture = new THREE.TextureLoader().load( 'texture.png' );
+
+			// immediately use the texture for material creation
+			var material2 = new THREE.MeshBasicMaterial( { map: texture } );
+
 			// instantiate a loader
 			var loader = new THREE.OBJLoader();
 
@@ -51,7 +57,7 @@
 				function ( object ) {
 
 					object.traverse( function ( node ) {
-						if ( node.isMesh ) node.material = material;
+						if ( node.isMesh ) node.material = material2;
 					} );
 
 					scene.add( object );
