@@ -86,7 +86,9 @@
 			}
 
 			var animate = function () {
-				rotate();
+				if( object1 != undefined){
+					rotate();
+				}
 				requestAnimationFrame( animate);
 				controls.update();
 				renderer.render( scene, camera );
