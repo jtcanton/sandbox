@@ -23,6 +23,7 @@
 			var renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
+			scene.background = new THREE.Color( 0xff0000 );
 
 			camera.position.z = 5;	
 			
@@ -40,13 +41,6 @@
 				'./fox.obj',
 				// called when resource is loaded
 				function ( object ) {
-
-					object.traverse( function (child) {
-          			if ( child instanceof THREE.Mesh ) {
-              			child.material.map = THREE.TextureLoader().load( './texture.png');
-              			child.material.needsUpdate = true;
-          				}
-					});
 
 					scene.add( object );
 
