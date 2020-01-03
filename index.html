@@ -27,6 +27,10 @@
 
 			camera.position.z = 15;	
 			
+			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			var cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
 
 			var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.7 );
 			scene.add( ambientLight );
