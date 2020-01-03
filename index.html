@@ -15,8 +15,9 @@
 			// Our Javascript will go here.
 			
 			var plant;
-			import { ColladaLoader } from 'index.js';
 			
+			import { ColladaLoader } from 'index.js';
+			console.log("import collada loader");
 			
 			
 			var scene = new THREE.Scene();
@@ -35,20 +36,25 @@
 				var loadingManager = new THREE.LoadingManager( function () {
 					scene.add( plant );
 				} );
+				console.log("loading manager");
 				
 				// collada
 				var loader = new ColladaLoader( loadingManager );
 				loader.load( 'model.dae', function ( collada ) {
 					plant = collada.scene;
 				} );
+				console.log("collada loader attempt");
 				
 				var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
 				scene.add( ambientLight );
-				var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
+				var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.3 );
 				directionalLight.position.set( 1, 1, 0 ).normalize();
 				scene.add( directionalLight );
+				console.log("add lights");
+				
 			
 			renderer.render( scene, camera );
+			console.log("rederer called");
 
 			
 		</script>
