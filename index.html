@@ -17,42 +17,14 @@
 			var plant;
 			console.log("hi");
 			
-			import { ColladaLoader } from 'index.js';
-			console.log("import collada loader");
-			
-			
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / 						window.innerHeight, 0.1, 1000 );
 
 			var renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
-			
-			
 
-			camera.position.z = 5;
-			
-			
-				// loading manager
-				var loadingManager = new THREE.LoadingManager( function () {
-					scene.add( plant );
-				} );
-				console.log("loading manager");
-				
-				// collada
-				var loader = new ColladaLoader( loadingManager );
-				loader.load( 'model.dae', function ( collada ) {
-					plant = collada.scene;
-				} );
-				console.log("collada loader attempt");
-				
-				var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
-				scene.add( ambientLight );
-				var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.3 );
-				directionalLight.position.set( 1, 1, 0 ).normalize();
-				scene.add( directionalLight );
-				console.log("add lights");
-				
+			camera.position.z = 5;	
 			
 			renderer.render( scene, camera );
 			console.log("rederer called");
