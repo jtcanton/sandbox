@@ -31,6 +31,11 @@
 			var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
 			scene.add( ambientLight );
 			console.log('lights added');
+
+			// Create a material
+			var textureLoader = new THREE.TextureLoader();
+			var map = textureLoader.load('./texture.png');
+			var material = new THREE.MeshPhongMaterial({map: map});
 			
 			// instantiate a loader
 			var loader = new THREE.OBJLoader();
@@ -42,6 +47,9 @@
 				// called when resource is loaded
 				function ( object ) {
 
+					object.traverse( function ( node ) {
+						if ( node.isMesh ) node.material = material;
+					} );
 					scene.add( object );
 
 				},
