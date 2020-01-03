@@ -16,6 +16,7 @@
 		<script src="TextureLoader.js"></script>
 		<script>
 			
+			var object1;
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
@@ -56,6 +57,8 @@
 				// called when resource is loaded
 				function ( object ) {
 
+					object1 = object;
+
 					object.traverse( function ( node ) {
 						if ( node.isMesh ) node.material = material2;
 					} );
@@ -78,8 +81,8 @@
 			);
 
 			var rotate = function(){
-				object.x += .1;
-				object.y += .1;
+				object1.x += .1;
+				object1.y += .1;
 			}
 
 			var animate = function () {
