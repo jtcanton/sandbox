@@ -77,6 +77,11 @@
 				}
 			);
 
+			var rotate = function(){
+				object.x += .1;
+				object.y += .1;
+			}
+
 			var animate = function () {
 				requestAnimationFrame( animate);
 				controls.update();
